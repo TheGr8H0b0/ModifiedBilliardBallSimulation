@@ -7,8 +7,14 @@ public class PolarLine {
 	public double length = 0;
 	public double angle;
 	
+	//Only allows the line length to be updated once
 	private boolean updatability = true;
 
+	/**
+	 * Creates a polar line with a set angle, and start point
+	 * @param degrees - The degrees off of the positive x-axis the line will be projected at
+	 * @param origin - The origin of the line in [x,y] coordinates
+	 */
 	PolarLine(double degrees, double[] origin) {
 		double rad = Math.toRadians(degrees);
 		endpt[0] = 2 * Math.cos(rad) + origin[0];
@@ -17,6 +23,12 @@ public class PolarLine {
 		angle = rad;
 	}
 	
+	/**
+	 * Creates a polar line with a set length, angle, and start point
+	 * @param l - the length of the line
+	 * @param degrees - The degrees off of the positive x-axis the line will be projected at
+	 * @param origin - The origin of the line in [x,y] coordinates
+	 */
 	PolarLine(double l, double degrees, double[] origin) {
 		double rad = Math.toRadians(degrees);
 		endpt[0] = l * Math.cos(rad);
@@ -29,6 +41,10 @@ public class PolarLine {
 		updatability = false;
 	}
 	
+	/**
+	 * Updates the length of the line
+	 * @param l - the new length of the line to be set to
+	 */
 	public void updateLength(double l) {
 		if (updatability) {
 			length = l;
