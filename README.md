@@ -3,6 +3,7 @@ This project is a modified verion of the mathematical Billiard Ball problem.
 This simulation has been created to better understand the mathematics behind what is happening using the four rules.
 
 Rules:
+
 1: Start with a unit square (eventually to be grown to any unit shape - triangle, square, pentagon, all the way up to a circle) 
 
 2: From the corner that is closest to the x,y origin project a line at any degree angle (for a square anything outside of 0-90 is arbitrary)
