@@ -139,10 +139,13 @@ public class LinesAndIntersections {
 				lines.remove(lines.size()-5);
 				lines.remove(lines.size()-4);
 			} 
+			//Adds every line intersection into the intersections array
 			for (int j = 0; j < lines.size()-1; j++) {
 				intersections.add(findIntersection(currentLine, lines.get(j)));
 			}
-			double[] cordAndLineData =findClosestIntersection(intersections, currentLine);
+			//Grabs the closest line intersection to the current line, returning the x,y coordinate and the line it hits
+			double[] cordAndLineData = findClosestIntersection(intersections, currentLine);
+			//Prints the line info if told to 
 			if (printLineInfo) {
 				System.out.print("Line " + (i+1) + " begins at (" + currentLine.startpt[0] + ",  " + currentLine.startpt[1]
 						+ ") with an angle of " + Math.toDegrees(currentLine.angle) + "\n \t and ends at (" +  currentLine.endpt[0] + ",  " + + currentLine.endpt[1] + ")"
@@ -150,18 +153,30 @@ public class LinesAndIntersections {
 				try {
 					System.out.println((cordAndLineData[2]-3));
 					System.out.println("");
+					//Adds the end-point of the current line (which is where it intersects with the other line)
 					usefulIntersections.add(currentLine.endpt);
+					//Sets the current line to be the new line created by the collision
 					currentLine = createCollissionLine(new double[] {cordAndLineData[0],cordAndLineData[1]},currentLine, lines.get((int)cordAndLineData[2]));
+					//Adds the new current line to the array of lines 
 					lines.add(currentLine);
-				} catch (Exception e) {
+				}
+				//If an exception occurs then it simply returns the points that is has already calculated
+				//*Note: The exception probably occurs because of a perpendicular intersection
+				catch (Exception e) {
 					return usefulIntersections;
 				}
 			} else {
 				try {
+					//Adds the end-point of the current line (which is where it intersects with the other line)
 					usefulIntersections.add(currentLine.endpt);
+					//Sets the current line to be the new line created by the collision
 					currentLine = createCollissionLine(new double[] {cordAndLineData[0],cordAndLineData[1]},currentLine, lines.get((int)cordAndLineData[2]));
+					//Adds the new current line to the array of lines 
 					lines.add(currentLine);
-				} catch (Exception e) {
+				} 
+				//If an exception occurs then it simply returns the points that is has already calculated
+				//*Note: The exception probably occurs because of a perpendicular intersection
+				catch (Exception e) {
 					return usefulIntersections;
 				}
 			}
