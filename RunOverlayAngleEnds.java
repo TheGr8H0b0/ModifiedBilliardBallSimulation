@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -16,10 +17,13 @@ public class RunOverlayAngleEnds extends JComponent{
 
 	private static final long serialVersionUID = 1L;
 
-
+	// java - get screen size using the Toolkit class
+	private static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	
 	//Set the size of the popout display
-	private static int sizex = 2000;
-	private static int sizey = 1600;
+	private static int sizex = screenSize.width/2;
+	private static int sizey = (int)(sizex/2 + screenSize.height/4);
+	
 	
 	//Used to calculate where things need to be drawn
 	private static ArrayList<double[]> intersectArray = new ArrayList<double[]>();
