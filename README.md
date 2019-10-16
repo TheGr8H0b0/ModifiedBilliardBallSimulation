@@ -4,9 +4,9 @@ This simulation has been created to better understand the mathematics behind wha
 
 Rules:
 
-1: Start with any regular polygon. (We modified the shapes to make sure they always fit within a 1 by 1 square in the x,y plane)
+1: Start with any regular polygon. (We dynamically modify the shapes to make sure they always fit within a 1 by 1 square in the x,y plane)
 
-2: From one of the corners, project a line into the shape and mark down it's angle. (We measure the angles of all lines off of the positive x-axis)
+2: From any point inside the shape, project a line with some start angle. (Note: We measure the angles of all lines off of the positive x-axis)
 
 3: The line reflects off of the edges of the shape, the same way it does in the Billiard Ball Problem. The difference we've added is the fourth rule below:
 
